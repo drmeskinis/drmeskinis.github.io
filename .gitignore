@@ -3,3 +3,6 @@ img/maps/
 
 # Configuración local de Claude
 .claude/
+
+# Originales de fotos (respaldo local, no se publican)
+originales/

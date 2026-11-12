@@ -120,8 +120,6 @@ h2 { font-size: clamp(1.4rem, 2.4vw, 1.85rem); margin-bottom: 28px; }
 }
 .hours div:last-child { border-bottom: 1px solid var(--rule); }
 .hours dd { margin: 0; font-variant-numeric: tabular-nums; }
-.hours .today dt, .hours .today dd { font-weight: 600; }
-.hours .today dt::after { content: "hoy"; margin-left: 8px; font-size: .82rem; font-weight: 500; color: var(--go); }
 .turnos .btn { margin-top: auto; white-space: nowrap; }
 
 /* Ubicación */

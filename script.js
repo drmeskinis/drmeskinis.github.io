@@ -1,11 +1,3 @@
-// Resalta el horario que corresponde al día de hoy
-(function () {
-  const today = String(new Date().getDay()); // 0 = domingo
-  document.querySelectorAll('.hours [data-days]').forEach((row) => {
-    if (row.dataset.days.split(' ').includes(today)) row.classList.add('today');
-  });
-})();
-
 // Visor de fotos de la galería
 (function () {
   const dialog = document.querySelector('.lightbox');

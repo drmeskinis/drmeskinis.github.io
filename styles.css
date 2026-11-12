@@ -83,7 +83,7 @@ h2 { font-size: clamp(1.4rem, 2.4vw, 1.85rem); margin-bottom: 28px; }
 }
 .header-inner { display: flex; align-items: center; gap: 32px; height: var(--header-h); }
 .brand { display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--ink); }
-.brand-logo { height: 52px; width: auto; }
+.brand-logo { height: 48px; width: 48px; border-radius: 4px; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
 .brand-name { font-weight: 600; font-size: 1.05rem; }
 .brand-spec { color: var(--muted); font-size: .9rem; }
@@ -109,7 +109,8 @@ h2 { font-size: clamp(1.4rem, 2.4vw, 1.85rem); margin-bottom: 28px; }
 .doctor-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; }
 .doctor-head { margin-top: 20px; }
 .doctor-head h1 { font-size: 1.5rem; }
-.doctor-role { color: var(--muted); margin-top: 8px; }
+.doctor-role { color: var(--ink); margin-top: 10px; font-size: .85rem; font-weight: 500; letter-spacing: .04em; line-height: 1.45; }
+.doctor-uni { color: var(--muted); margin-top: 6px; font-size: .8rem; letter-spacing: .04em; }
 
 /* Turnos */
 .turnos { display: flex; flex-direction: column; align-items: flex-start; }
@@ -198,7 +199,7 @@ h2 { font-size: clamp(1.4rem, 2.4vw, 1.85rem); margin-bottom: 28px; }
 @media (max-width: 600px) {
   :root { --header-h: 68px; }
   .wrap { padding-inline: 16px; }
-  .brand-logo { height: 42px; }
+  .brand-logo { height: 40px; width: 40px; }
   .brand-name { font-size: 1rem; }
   .hero { padding: 32px 0 48px; }
   .hero-grid { grid-template-columns: 1fr; row-gap: 32px; }
@@ -208,7 +209,8 @@ h2 { font-size: clamp(1.4rem, 2.4vw, 1.85rem); margin-bottom: 28px; }
   .doctor { display: grid; grid-template-columns: 110px 1fr; gap: 18px; align-items: center; }
   .doctor-head { margin-top: 0; }
   .doctor-head h1 { font-size: 1.45rem; }
-  .doctor-role { font-size: .95rem; margin-top: 6px; }
+  .doctor-role { font-size: .8rem; margin-top: 6px; }
+  .doctor-uni { font-size: .75rem; }
   .hours { margin-bottom: 20px; }
   .turnos .btn { width: 100%; }
   .map { height: 280px; }

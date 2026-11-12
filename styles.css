@@ -1,0 +1,221 @@
+/* =========================================================
+   Dr. José Luis Meskinis — Oftalmología
+   Blanco clínico, azul grafito y títulos en Archivo ensanchada.
+   El logo (la moto) va como pieza propia, sin teñir la página.
+   ========================================================= */
+
+:root {
+  --paper: #ffffff;
+  --paper-2: #f4f6f8;      /* bandas alternas, gris frío muy suave */
+  --ink: #172433;          /* azul grafito */
+  --muted: #5f6e7c;
+  --rule: #dfe4e9;
+  --go: #1c7a4a;           /* verde de los botones de turno */
+  --go-dark: #155e39;
+  --focus: #2f6fa8;
+
+  --sans: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --wrap: 1200px;
+  --header-h: 80px;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+p { margin: 0; }
+
+h1, h2 {
+  margin: 0;
+  font-stretch: 125%;
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+h2 { font-size: clamp(1.4rem, 2.4vw, 1.85rem); margin-bottom: 28px; }
+
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: 32px; }
+
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 100;
+  background: var(--ink); color: #fff; padding: 10px 16px; text-decoration: none;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- Botones y enlaces ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font: inherit; font-weight: 600; text-decoration: none;
+  border-radius: 999px; padding: 14px 28px; transition: background-color .15s;
+}
+.btn-go { background: var(--go); color: #fff; }
+.btn-go:hover { background: var(--go-dark); }
+.wa-icon { width: 20px; height: 20px; flex: none; }
+
+.text-link {
+  color: var(--go); font-weight: 600;
+  text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 5px;
+}
+.text-link:hover { color: var(--go-dark); }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255, 255, 255, .95);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+.header-inner { display: flex; align-items: center; gap: 32px; height: var(--header-h); }
+.brand { display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--ink); }
+.brand-logo { height: 52px; width: auto; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.brand-name { font-weight: 600; font-size: 1.05rem; }
+.brand-spec { color: var(--muted); font-size: .9rem; }
+.main-nav { display: flex; gap: 32px; margin-left: auto; }
+.main-nav a { color: var(--muted); text-decoration: none; font-size: .98rem; }
+.main-nav a:hover { color: var(--ink); }
+
+/* ---------- Inicio: tres bloques separados (doctor | turnos | ubicación) ---------- */
+.hero { padding: clamp(56px, 7vw, 88px) 0; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: stretch;
+}
+.hero-grid > * { padding-inline: 52px; }
+.hero-grid > :first-child { padding-left: 0; }
+.hero-grid > :last-child { padding-right: 0; }
+.turnos, .location { border-left: 1px solid var(--rule); }
+
+.block-title { font-size: 1.15rem; margin-bottom: 18px; }
+
+/* Doctor: foto y texto juntos */
+.doctor-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; }
+.doctor-head { margin-top: 20px; }
+.doctor-head h1 { font-size: 1.5rem; }
+.doctor-role { color: var(--muted); margin-top: 8px; }
+
+/* Turnos */
+.turnos { display: flex; flex-direction: column; align-items: flex-start; }
+.hours { margin: 0 0 28px; width: 100%; }
+.hours div {
+  display: flex; justify-content: space-between; gap: 16px;
+  padding: 11px 0; border-top: 1px solid var(--rule);
+}
+.hours div:last-child { border-bottom: 1px solid var(--rule); }
+.hours dd { margin: 0; font-variant-numeric: tabular-nums; }
+.hours .today dt, .hours .today dd { font-weight: 600; }
+.hours .today dt::after { content: "hoy"; margin-left: 8px; font-size: .82rem; font-weight: 500; color: var(--go); }
+.turnos .btn { margin-top: auto; white-space: nowrap; }
+
+/* Ubicación */
+.location { display: flex; flex-direction: column; }
+.address { line-height: 1.45; color: var(--muted); margin-bottom: 14px; }
+.address strong { color: var(--ink); font-weight: 600; }
+.map { position: relative; flex: 1; min-height: 240px; border-radius: 4px; overflow: hidden; border: 1px solid var(--rule); background: var(--paper-2); }
+.map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ---------- Secciones ---------- */
+.section { padding: clamp(64px, 8vw, 104px) 0; }
+.section-alt { background: var(--paper-2); }
+
+/* Prácticas y coberturas lado a lado */
+.info-grid { display: grid; grid-template-columns: 1.7fr 1fr; gap: 48px 80px; }
+.practice-list {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px;
+}
+.practice-list li { padding: 14px 0; border-top: 1px solid var(--rule); }
+#coberturas p { margin-bottom: 20px; max-width: 44ch; }
+
+/* Galería: 6 columnas × 2 filas en escritorio */
+.gallery {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 180px; grid-auto-flow: dense; gap: 10px;
+}
+.gallery li { overflow: hidden; border-radius: 3px; background: var(--paper-2); }
+.gallery .g-wide { grid-column: span 2; grid-row: span 2; }
+.gallery .g-tall { grid-row: span 2; }
+.gallery .g-row { grid-column: span 2; }
+.gallery button { all: unset; display: block; width: 100%; height: 100%; cursor: zoom-in; }
+.gallery button:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
+.gallery img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Visor de fotos */
+.lightbox { border: 0; padding: 0; background: transparent; max-width: min(1100px, 94vw); max-height: 90vh; overflow: visible; }
+.lightbox::backdrop { background: rgba(23, 36, 51, .9); }
+.lightbox img { max-height: 86vh; width: auto; }
+.lightbox-close {
+  position: absolute; top: -16px; right: -16px; width: 44px; height: 44px; border-radius: 50%;
+  border: 0; background: #fff; color: var(--ink); font-size: 1.7rem; line-height: 1; cursor: pointer;
+}
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--ink); color: rgba(255, 255, 255, .72); padding: 36px 0; font-size: .95rem; }
+.footer-inner { display: flex; justify-content: space-between; gap: 8px 32px; flex-wrap: wrap; padding-right: 150px; }
+.footer-inner strong { color: #fff; font-weight: 600; }
+
+/* ---------- Botón flotante de WhatsApp ---------- */
+.wa-float {
+  position: fixed; right: 20px; bottom: 20px; z-index: 60;
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--go); color: #fff; text-decoration: none; font-weight: 700;
+  padding: 13px 22px 13px 16px; border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(23, 36, 51, .22);
+  transition: background-color .15s;
+}
+.wa-float:hover { background: var(--go-dark); }
+.wa-float svg { width: 28px; height: 28px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1120px) {
+  .hero-grid { grid-template-columns: 240px 1fr; row-gap: 40px; }
+  .turnos { padding-right: 0; }
+  .location { grid-column: 1 / -1; padding: 40px 0 0; border-left: 0; border-top: 1px solid var(--rule); }
+  .map { flex: none; height: 320px; }
+  .gallery { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 760px) {
+  .main-nav { display: none; }
+  .info-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  :root { --header-h: 68px; }
+  .wrap { padding-inline: 16px; }
+  .brand-logo { height: 42px; }
+  .brand-name { font-size: 1rem; }
+  .hero { padding: 32px 0 48px; }
+  .hero-grid { grid-template-columns: 1fr; row-gap: 32px; }
+  .hero-grid > * { padding-inline: 0; }
+  .turnos, .location { border-left: 0; border-top: 1px solid var(--rule); padding-top: 28px; }
+  .location { padding-top: 28px; }
+  .doctor { display: grid; grid-template-columns: 110px 1fr; gap: 18px; align-items: center; }
+  .doctor-head { margin-top: 0; }
+  .doctor-head h1 { font-size: 1.45rem; }
+  .doctor-role { font-size: .95rem; margin-top: 6px; }
+  .hours { margin-bottom: 20px; }
+  .turnos .btn { width: 100%; }
+  .map { height: 280px; }
+  .practice-list { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
+  .footer-inner { padding-right: 0; padding-bottom: 72px; }
+  .lightbox-close { top: 8px; right: 8px; }
+}

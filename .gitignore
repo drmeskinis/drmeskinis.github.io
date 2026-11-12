@@ -1,0 +1,5 @@
+# Fotos originales descargadas de Google Maps (no se usan en el sitio)
+img/maps/
+
+# Configuración local de Claude
+.claude/
